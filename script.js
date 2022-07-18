@@ -14,7 +14,7 @@ btn.addEventListener('click', function generate () {
     return num;
     }
 
-    for(cycle = 0;cycle<=10;cycle++)  {
+    for(cycle = 0;cycle=10;cycle++)  {
     randomizer(-10 , 10);
     numbersArr.push(num);
     } 
