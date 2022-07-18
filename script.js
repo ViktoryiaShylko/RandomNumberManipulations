@@ -8,31 +8,22 @@ btn.addEventListener('click', function generate () {
     document.getElementById('multiply').innerHTML = "";
     
     let numbersArr = [];
-
-    function randomizer (min, max){
-    num = Math.round(min - 0.5 + Math.random() * (max - min + 1));
-    return num;
+    for (let cycle = 0; cycle < 10; cycle++ ){
+        numbersArr.push(Math.floor(Math.random() * (10 - -10 + 1)) + -10);
     }
-
-    for(cycle = 0;cycle=10;cycle++)  {
-    randomizer(-10 , 10);
-    numbersArr.push(num);
-    } 
     document.getElementById('randomNumbers').innerHTML += numbersArr;
     
+    let min = Math.min(...numbersArr);
+    document.getElementById('min').innerHTML += min;
+    
+    let max = Math.max(...numbersArr);
+    document.getElementById('max').innerHTML += max;
 
+    let sum = numbersArr.reduce((previousNumber, currentNumber) => previousNumber + currentNumber);
 
-let min = Math.min(...numbersArr);
-document.getElementById('min').innerHTML += min;
+    document.getElementById('sum').innerHTML += sum;
+    document.getElementById('average').innerHTML += sum/10;
 
-let max = Math.max(...numbersArr);
-document.getElementById('max').innerHTML += max;
-
-let sum = numbersArr.reduce((previousNumber, currentNumber) => previousNumber + currentNumber);
-
-document.getElementById('sum').innerHTML += sum;
-document.getElementById('average').innerHTML += sum/10;
-
-let multiply = numbersArr.reduce((previousNumber, currentNumber) => previousNumber * currentNumber, 1);
-document.getElementById('multiply').innerHTML += multiply;
+    let multiply = numbersArr.reduce((previousNumber, currentNumber) => previousNumber * currentNumber, 1);
+    document.getElementById('multiply').innerHTML += multiply;
 })
